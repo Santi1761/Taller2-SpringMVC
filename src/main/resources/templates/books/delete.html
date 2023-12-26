@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/225/225932.png">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="icesi.edu.co.LibrarySystem.LibrarySystem.resources.books/styles.css">
+    <title>Delete Book</title>
+    <style>
+        /* Fondo negro mate en toda la página */
+        body {
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0; /* Elimina el margen predeterminado */
+            padding: 0; /* Elimina el espacio de relleno predeterminado */
+        }
+        /* Estilo de la barra de navegación */
+        .navbar {
+            background-color: #333333; /* Color de la barra de navegación */
+            font-weight: bold;
+            width: 100%; /* Ocupa todo el ancho de la página */
+            position: fixed; /* Fija la barra de navegación en la parte superior */
+            top: 0; /* Alinea la barra de navegación en la parte superior */
+            z-index: 1; /* Coloca la barra de navegación en la parte superior */
+        }
+        .navbar a {
+            color: white;
+        }
+        /* Estilo para el contenido debajo de la barra de navegación */
+        .container {
+            margin-top: 70px; /* Espacio superior para evitar la superposición con la barra de navegación */
+            background-color: transparent; /* Fondo transparente para el contenido */
+            padding: 0; /* Elimina el espacio de relleno */
+        }
+        /* Estilo específico para el formulario */
+        form {
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semitransparente para el formulario */
+            padding: 20px; /* Espacio interno para el formulario */
+            border-radius: 5px; /* Bordes redondeados */
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Library System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/home">Principal Page</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/book/new">Create book</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/book/edit">Edit book</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <form method="post" th:action="@{/book/delete}">
+        <label for="bookId" style="color: white;">ID del Libro a Eliminar:</label>
+        <input type="text" id="bookId" name="id" required>
+        <button class="btn btn-primary" type="submit">Delete</button>
+    </form>
+</div>
+</body>
+</html>

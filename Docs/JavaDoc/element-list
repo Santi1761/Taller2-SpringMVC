@@ -1,0 +1,8 @@
+icesi.edu.co.LibrarySystem.LibrarySystem
+icesi.edu.co.LibrarySystem.LibrarySystem.configurations
+icesi.edu.co.LibrarySystem.LibrarySystem.controllers
+icesi.edu.co.LibrarySystem.LibrarySystem.persistence.models
+icesi.edu.co.LibrarySystem.LibrarySystem.persistence.repositories
+icesi.edu.co.LibrarySystem.LibrarySystem.persistence.repositories.impl
+icesi.edu.co.LibrarySystem.LibrarySystem.services
+icesi.edu.co.LibrarySystem.LibrarySystem.services.impl

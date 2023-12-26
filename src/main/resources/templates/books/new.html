@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Add new Book</title>
+    <style>
+        /* Fondo grisáceo */
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo de la barra de navegación */
+        .navbar {
+            background-color: #333;
+            font-weight: bold;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .navbar a {
+            color: white;
+        }
+
+        /* Estilo para el contenido debajo de la barra de navegación */
+        .container {
+            margin-top: 70px;
+            background-color: rgba(50, 50, 50, 0.7); /* Fondo grisáceo ligeramente transparente */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Cambiar el color de las letras a blancas */
+        th {
+            color: white;
+        }
+
+        td {
+            color: white;
+        }
+
+        /* Estilo para los botones */
+        .btn {
+            border-radius: 10px;
+            background-color: #007BFF; /* Azul */
+            color: white;
+            margin-top: 10px;
+        }
+
+        /* Espaciado entre los elementos del formulario */
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Library System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/home">Principal Page</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/book/new">Create book</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/book/edit">Edit book</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h1 th:if="${book == null}">Create Book</h1>
+    <h1 th:unless="${book == null}">Edit Book</h1>
+
+    <form method="POST" th:action="@{/book}" th:object="${newBook}">
+        <div class="form-group">
+            <span>Id:</span>
+            <input class="form-control" type="text" name="id" th:value="${book != null} ? ${book.id} : ''" />
+        </div>
+        <div class="form-group">
+            <span>Name:</span>
+            <input class="form-control" type="text" name="name" th:value="${book != null} ? ${book.name} : ''" />
+        </div>
+        <div class="form-group">
+            <span>Author:</span>
+            <input class="form-control" type="text" name="author" th:value="${book != null} ? ${book.author} : ''" />
+        </div>
+        <div class="form-group">
+            <span>Publisher:</span>
+            <input class="form-control" type="text" name="publisher" th:value="${book != null} ? ${book.publisher} : ''" />
+        </div>
+        <div class="form-group">
+            <span>Price:</span>
+            <input class="form-control" type="text" name="price" th:value="${book != null} ? ${book.price} : ''" />
+        </div>
+        <div class="form-group">
+            <span>Cant:</span>
+            <input class="form-control" type="text" name="cant" th:value="${book != null} ? ${book.cant} : ''" />
+        </div>
+        <button type="submit" class="btn">Enviar</button>
+    </form>
+</div>
+</body>
+</html>
